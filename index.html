@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Legal Maxims Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Legal maxims navigation">
+        <div class="brand">
+          <span class="brand-mark">L</span>
+          <div>
+            <h1>Legal Maxims Studio</h1>
+            <p>Study, search, and play through core legal phrases.</p>
+          </div>
+        </div>
+
+        <nav class="mode-tabs" aria-label="Study modes">
+          <button class="tab-button active" type="button" data-mode="explore">Explore</button>
+          <button class="tab-button" type="button" data-mode="flashcards">Flashcards</button>
+          <button class="tab-button" type="button" data-mode="quiz">Quiz</button>
+          <button class="tab-button" type="button" data-mode="match">Match</button>
+        </nav>
+
+        <div class="filters">
+          <label for="searchInput">Search</label>
+          <input id="searchInput" type="search" placeholder="mens rea, equity, evidence..." />
+
+          <label for="categorySelect">Category</label>
+          <select id="categorySelect"></select>
+
+          <label for="levelSelect">Level</label>
+          <select id="levelSelect">
+            <option value="all">All levels</option>
+            <option value="Basic">Basic</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+
+        <div class="stats-panel" aria-live="polite">
+          <span id="visibleCount">0</span>
+          <small>maxims in current set</small>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <section class="topbar">
+          <div>
+            <p class="eyebrow">Latin, common law, equity, evidence, criminal law</p>
+            <h2 id="modeTitle">Explore Maxims</h2>
+          </div>
+          <button id="shuffleButton" class="icon-button" type="button" title="Shuffle current set" aria-label="Shuffle current set">Shuffle</button>
+        </section>
+
+        <section id="exploreMode" class="mode-panel active-panel" aria-labelledby="modeTitle">
+          <div id="maximGrid" class="maxim-grid"></div>
+        </section>
+
+        <section id="flashcardsMode" class="mode-panel" aria-labelledby="modeTitle">
+          <div class="study-layout">
+            <article id="flashcard" class="flashcard" tabindex="0" role="button" aria-label="Flip flashcard">
+              <div class="flashcard-face flashcard-front">
+                <span id="cardLevel" class="pill">Basic</span>
+                <h3 id="cardMaxim">Actus non facit reum nisi mens sit rea</h3>
+                <p>Click the card to reveal meaning and use.</p>
+              </div>
+              <div class="flashcard-face flashcard-back">
+                <h3 id="cardMeaning">Meaning</h3>
+                <p id="cardExplanation"></p>
+                <small id="cardContext"></small>
+              </div>
+            </article>
+            <div class="control-row">
+              <button id="prevCard" type="button">Previous</button>
+              <button id="flipCard" type="button">Flip</button>
+              <button id="nextCard" type="button">Next</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="quizMode" class="mode-panel" aria-labelledby="modeTitle">
+          <div class="quiz-card">
+            <div class="score-row">
+              <span id="quizProgress">Question 1</span>
+              <span id="quizScore">Score 0</span>
+            </div>
+            <h3 id="quizQuestion"></h3>
+            <div id="quizOptions" class="option-list"></div>
+            <p id="quizFeedback" class="feedback" aria-live="polite"></p>
+            <button id="nextQuestion" type="button">Next Question</button>
+          </div>
+        </section>
+
+        <section id="matchMode" class="mode-panel" aria-labelledby="modeTitle">
+          <div class="match-header">
+            <p>Select a maxim, then select its meaning.</p>
+            <button id="resetMatch" type="button">New Match Round</button>
+          </div>
+          <div class="match-board">
+            <div id="matchTerms" class="match-column" aria-label="Maxims"></div>
+            <div id="matchMeanings" class="match-column" aria-label="Meanings"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="maxims.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
