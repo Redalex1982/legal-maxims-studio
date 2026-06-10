@@ -1,4 +1,4 @@
-# Legal Maxims Studio
+# Legal Maxims Studio NAGDEVE
 
 A no-dependency visual web app for learning legal maxims and legal phrases from basic to advanced level.
 
